@@ -3,15 +3,112 @@ import HeaderComponent from './Header_Component/headerComponent';
 import $ from '../node_modules/jquery/dist/jquery.min';
 
 import './App.css';
+import Counter from './Counter';
+import Greet from './Greet';
+import Welcome from './Welcome';
+import FunctionClick from './FunctionClick';
+import ClassClick from './ClassClick';
+import EventBind from './EventBind';
+import Mapping from './Header_Component/Mapping';
+import Stylesheet from './Header_Component/Stylesheet'
+import InlineCSS from './Header_Component/InlineCSS'
+import './appStyles.css'
+import styles from './appStyles.module.css'
+import RefsDemo from './RefsDemo';
+import FRParentInput from './FRParentInput';
+import ApiCallDemoUsingFetchMethod from './ApiCallDemoUsingFetchMethod';
+import ApiCallUsingAxios from './ApiCallUsingAxios';
+import moduleName from 'module'
+import ForceUpdate from './ForceUpdate';
+import FindDOMNode from './FindDOMNode';
+import { findDOMNode } from 'react-dom';
+import PropValidation from './PropValidation';
+import PropTypes from 'prop-types';
+import HigherOrderSample1 from './HigherOrderSample1';
+import HigherOrderChildSample2 from './HigherOrderChildSample2';
+import HigherOrderChildSample3 from './HigherOrderChildSample3';
+import Router_one from './Router_one';
+import PostForm from './PostForm';
+import Sidebar from './Sidebar';
 
+
+const Test = (props) => {
+   return(
+      <div>
+         <h1>{props.str}</h1>
+         <h1>{(props.bool ? 'bool' : 'no bool')}</h1>
+         <h1>{props.strOrNum}</h1>
+         <div>{
+            props.arr.map((val) => {
+                  return <li key={val}>{val}</li>
+               }
+            )
+         }</div>
+         <div>{
+            props.arrOfObj.map((val) => {
+                  return <li key={val.age}>{val.name}</li>
+               }
+            )
+         }</div>
+         <h2>{props.children}</h2>
+      </div>
+   )
+}
+
+Test.propTypes = {
+   str: PropTypes.string,
+   bool: PropTypes.bool,
+   strOrNum: PropTypes.oneOfType([PropTypes.string,PropTypes.number]),
+   arr: PropTypes.arrayOf(PropTypes.number),
+   arrOfObj: PropTypes.arrayOf(PropTypes.shape(
+      {
+         name: PropTypes.string,
+         age: PropTypes.number
+      }
+   )),
+   children: PropTypes.string
+}
 class App extends React.Component {
    
   render() {
      return (
         <div>
+           <Sidebar />
+        {/* <PostForm />
+        <Router_one /> */}
+        {/* <Animation/> */}
+        {/* <HigherOrderChildSample2 />
+        <HigherOrderChildSample3 /> */}
+        {/* <HigherOrderSample1/> */}
+        {/* <Test  str={'KiranCM'}
+        bool
+        strOrNum = {'Amalkiran.C.Marshanalli'}
+        arr = {[1,2,3]}
+        arrOfObj = {[{name:'john', age: 10}, {name:'kiran', age: 24}]}
+        >children</Test>  */}
+        {/* strOrNum = {'Amalkiran.C.Marshanalli'}/> */}
+           <PropValidation str={'KiranCM'}/>
+           {/* <FindDOMNode/> */}
+           {/* <ForceUpdate/> */}
+           {/* <ApiCallUsingAxios /> */}
+           {/* <FRParentInput /> */}
+           {/* <ApiCallDemoUsingFetchMethod /> */}
+           {/* <RefsDemo /> */}
+           {/* <h1 className = 'error'> Error </h1> */}
+           {/* <h1 className = 'styles.success'> Success </h1>
+           <Stylesheet primary={true}/>
+           <InlineCSS/>
            <HeaderComponent />
-           <Content/>
-           <Footer/>
+           <Content/> */}
+           
+           {/* <Counter/>
+           <Greet name = "Amalkiran" heroName="KiranCM"/>
+           <Welcome name="Welcome" heroName="KiranCM"></Welcome>
+           <FunctionClick/>
+           <ClassClick/>
+           <EventBind/> */}
+           {/* <Mapping/>
+           <Footer/> */}
         </div>
      );
   }
@@ -105,11 +202,13 @@ class Footer extends React.Component {
    render() {
       return (
          <div class="card-footer text-muted">
-            <footer>Footer</footer>
-            <p>The content text!!!</p>
+            <footer>© a kirancm product</footer>
          </div>
       );
    }
  }
 
 export default App;
+
+
+// Mapping.js Parent -> Person.js child

@@ -6,6 +6,7 @@ import logo1 from './Amalkiran_logo.png';
 class HeaderComponent extends Component{
     state = {
         count: "HEADER",
+        count1: "header123",
     }
     render() {
         return (
@@ -14,9 +15,7 @@ class HeaderComponent extends Component{
         // </div>
         <div class="header">
            <h1><img class="logo" src= {logo,logo1} width="65px" height="65px" />LOGIN {this.state.count}
-           <button class="btn btn-link update_btn" onClick={() => this.setState({ 
-            count: 'Header'
-            })}>Update</button>
+           <button class="btn btn-link update_btn" onClick={() => this.setState({count: this.state.count1})}>Update</button>
             </h1>
                <div class="collapse navbar-collapse" id="navbarCollapse">
                   <ul class="navbar-nav mr-auto">
