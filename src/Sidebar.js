@@ -1,33 +1,36 @@
-import React from 'react';
-import { slide as Menu } from 'react-burger-menu';
+import React, { Component } from 'react';
+import {Nav} from "react-bootstrap";
+import { withRouter } from "react-router";
 
-export default props => {
-  return (
-    //   <h1> Sidebar </h1>
-    <Menu>
-      <a className="menu-item" href="/">
-        Home
-      </a>
+const Side = props => {
 
-      <a className="menu-item" href="/laravel">
-        Laravel
-      </a>
 
-      <a className="menu-item" href="/angular">
-        Angular
-      </a>
+    return (
+        <>
 
-      <a className="menu-item" href="/react">
-        React
-      </a>
+            <Nav className="col-md-12 d-none d-md-block bg-light sidebar"
+            activeKey="/home"
+            onSelect={selectedKey => alert(`selected ${selectedKey}`)}
+            >
+                <div className="sidebar-sticky"></div>
+            <Nav.Item>
+                <Nav.Link href="/home">Active</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+                <Nav.Link eventKey="link-1">Link</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+                <Nav.Link eventKey="link-2">Link</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+                <Nav.Link eventKey="disabled" disabled>
+                Disabled
+                </Nav.Link>
+            </Nav.Item>
+            </Nav>
 
-      <a className="menu-item" href="/vue">
-        Vue
-      </a>
-
-      <a className="menu-item" href="/node">
-        Node
-      </a>
-    </Menu>
-  );
-};
+        </>
+        );
+  };
+  const Sidebar = withRouter(Side);
+  export default Sidebar

@@ -1,3 +1,5 @@
+import 'react-app-polyfill/ie11';
+import 'react-app-polyfill/stable';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import $ from 'jquery';
 import Popper from 'popper.js';
@@ -8,6 +10,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 
+import '@fortawesome/fontawesome-free/css/all.min.css'; import
+'bootstrap-css-only/css/bootstrap.min.css'; import
+'mdbreact/dist/css/mdb.css';
+import { BrowserRouter } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 
 const myfirstelement = <h1>
@@ -19,7 +25,7 @@ const myfirstelement = <h1>
   );
 </h1>
 
-  
+ 
 ReactDOM.render(myfirstelement, document.getElementById('root'));
 ReactDOM.render(<App />, document.getElementById('root'));
 

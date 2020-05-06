@@ -30,7 +30,19 @@ import HigherOrderChildSample3 from './HigherOrderChildSample3';
 import Router_one from './Router_one';
 import PostForm from './PostForm';
 import Sidebar from './Sidebar';
+import { MDBSideNavCat, MDBSideNavNav, MDBSideNav, MDBSideNavLink, MDBContainer, MDBIcon, MDBBtn } from "mdbreact";
+import MenuBar from './Header_Component/SidebarComponent/MenuBar';
+import { BrowserRouter } from 'react-router-dom';
 
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { NavigationBar } from './Component/NavigationBar';
+import { Home } from './Home';
+import { About } from './About';
+import { NoMatch } from './NoMatch';
+import SideBaar from './Component/SideBaar';
+import ReactDOM from 'react-dom'; 
+import SidebarMd from './SidebarMd'
 
 const Test = (props) => {
    return(
@@ -68,51 +80,143 @@ Test.propTypes = {
    )),
    children: PropTypes.string
 }
+
+// - - - - - - - SlidingMe  - - - - - - -
+// class SlidingMenu extends React.Component{
+//    constructor(props){
+//      super(props);
+//    }
+//    render(){
+//      return(
+//        <div className={"sliding-menu animated " + this.props.slideClass}>
+//          <button type="button" onClick={this.props.onClick}>
+//            <span className="glyphicon glyphicon-arrow-left"></span>
+//          </button>
+//          {this.props.children}
+//        </div>
+//      );
+//    }
+//  }
+ 
+//  class App extends React.Component{
+//    constructor(props) {
+//      super(props);
+//      this.state = {
+//        toggleMenu: false
+//      }
+//      this.handleClick = this.handleClick.bind(this);
+//    }
+   
+//    handleClick() {
+//      console.log(this.state.toggleMenu);
+//      this.setState({toggleMenu: !this.state.toggleMenu});
+//    }
+   
+//    render(){
+//      let slideClass;
+//      this.state.toggleMenu
+//        ? slideClass = 'slideInLeft slide-menu'
+//        : slideClass = 'slideInRight';
+     
+//      return(
+//        <div className="main-container">
+//          <button type="button" onClick={this.handleClick}>
+//            <span className="glyphicon glyphicon-menu-hamburger"></span>
+//          </button>
+//          <SlidingMenu slideClass={slideClass} onClick={this.handleClick}>
+//          <ul class="list-unstyled components mb-5">
+//          <li class="active">
+//          <a href="#"><span class="fa fa-home"></span> Home</a>
+//          </li>
+//          <li>
+//          <a href="#"><span class="fa fa-user"></span> About</a>
+//          </li>
+//          <li>
+//          <a href="#"><span class="fa fa-sticky-note"></span> Blog</a>
+//          </li>
+//          <li>
+//          <a href="#"><span class="fa fa-cogs"></span> Services</a>
+//          </li>
+//          <li>
+//          <a href="#"><span class="fa fa-paper-plane"></span> Contacts</a>
+//          </li>
+//          </ul>
+//          </SlidingMenu>
+//        </div>
+//      );
+//    }
+//  }
+ 
+//  const element = <h1>Welcome</h1>;
+//  ReactDOM.render(<App />, document.getElementById("root"));
 class App extends React.Component {
    
   render() {
      return (
-        <div>
-           <Sidebar />
-        {/* <PostForm />
-        <Router_one /> */}
-        {/* <Animation/> */}
-        {/* <HigherOrderChildSample2 />
-        <HigherOrderChildSample3 /> */}
-        {/* <HigherOrderSample1/> */}
-        {/* <Test  str={'KiranCM'}
-        bool
-        strOrNum = {'Amalkiran.C.Marshanalli'}
-        arr = {[1,2,3]}
-        arrOfObj = {[{name:'john', age: 10}, {name:'kiran', age: 24}]}
-        >children</Test>  */}
-        {/* strOrNum = {'Amalkiran.C.Marshanalli'}/> */}
-           <PropValidation str={'KiranCM'}/>
-           {/* <FindDOMNode/> */}
-           {/* <ForceUpdate/> */}
-           {/* <ApiCallUsingAxios /> */}
-           {/* <FRParentInput /> */}
-           {/* <ApiCallDemoUsingFetchMethod /> */}
-           {/* <RefsDemo /> */}
-           {/* <h1 className = 'error'> Error </h1> */}
-           {/* <h1 className = 'styles.success'> Success </h1>
-           <Stylesheet primary={true}/>
-           <InlineCSS/>
-           <HeaderComponent />
-           <Content/> */}
+         <div>
+            <SidebarMd/>
+            {/* <BrowserRouter>
+               <Sidebar /> 
+            </BrowserRouter> */}
+      
+         </div>
+      //   <React.Fragment>
+      //       <Router> 
+      //          <NavigationBar />
+
+      //          <SideBaar />
+               
+      //             <Switch>
+      //                <Route exact path="/" component={Home} />
+      //                <Route path="/about" component={About} />
+      //                <Route component={NoMatch} />
+      //             </Switch>
+      //       </Router>
+      //   </React.Fragment>
+      //   {/* <BrowserRouter>
+      //       <MenuBar />
+      //   </BrowserRouter> */}
+          
+        
+      //   {/* <PostForm />
+      //   <Router_one /> */}
+      //   {/* <Animation/> */}
+      //   {/* <HigherOrderChildSample2 />
+      //   <HigherOrderChildSample3 /> */}
+      //   {/* <HigherOrderSample1/> */}
+      //   {/* <Test  str={'KiranCM'}
+      //   bool
+      //   strOrNum = {'Amalkiran.C.Marshanalli'}
+      //   arr = {[1,2,3]}
+      //   arrOfObj = {[{name:'john', age: 10}, {name:'kiran', age: 24}]}
+      //   >children</Test>  */}
+      //   {/* strOrNum = {'Amalkiran.C.Marshanalli'}/> */}
+      //      <PropValidation str={'KiranCM'}/>
+      //      {/* <FindDOMNode/> */}
+      //      {/* <ForceUpdate/> */}
+      //      {/* <ApiCallUsingAxios /> */}
+      //      {/* <FRParentInput /> */}
+      //      {/* <ApiCallDemoUsingFetchMethod /> */}
+      //      {/* <RefsDemo /> */}
+      //      {/* <h1 className = 'error'> Error </h1> */}
+      //      {/* <h1 className = 'styles.success'> Success </h1>
+      //      <Stylesheet primary={true}/>
+      //      <InlineCSS/>
+      //      <HeaderComponent />
+      //      <Content/> */}
            
-           {/* <Counter/>
-           <Greet name = "Amalkiran" heroName="KiranCM"/>
-           <Welcome name="Welcome" heroName="KiranCM"></Welcome>
-           <FunctionClick/>
-           <ClassClick/>
-           <EventBind/> */}
-           {/* <Mapping/>
-           <Footer/> */}
-        </div>
+      //      {/* <Counter/>
+      //      <Greet name = "Amalkiran" heroName="KiranCM"/>
+      //      <Welcome name="Welcome" heroName="KiranCM"></Welcome>
+      //      <FunctionClick/>
+      //      <ClassClick/>
+      //      <EventBind/> */}
+      //      {/* <Mapping/>
+      //      <Footer/> */}
+         
      );
   }
-}
+} // Class App End
 // class Header extends React.Component {
 //    state = {
 //       count: "HEADER",
@@ -155,7 +259,7 @@ class App extends React.Component {
 //       );
 //   }
 // }
-
+// - - - - - - - SlidingMe  - - - - - - -
 
 class Content extends React.Component {
   render() {
